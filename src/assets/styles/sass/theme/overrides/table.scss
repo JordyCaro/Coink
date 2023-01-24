@@ -1,0 +1,72 @@
+::ng-deep .mat-sort-header-arrow[style] {
+  // Hide default arrow stem
+  .mat-sort-header-stem {
+    display: none;
+  }
+  .mat-sort-header-indicator {
+    opacity: 1;
+    color: black;
+    font-weight: bold;
+
+    // Hide default arrow as its composed of left, right and middle
+    .mat-sort-header-pointer-left,
+    .mat-sort-header-pointer-right,
+    .mat-sort-header-pointer-middle {
+      display: none;
+    }
+  }
+}
+
+// My custom ascending arrow
+[aria-sort="ascending"] {
+  ::ng-deep .mat-sort-header-arrow {
+    .mat-sort-header-indicator {
+      &::before {
+        content: url("/assets/images/arrow.png");
+        bottom: -18px;
+        position: absolute;
+      }
+    }
+  }
+}
+
+// My custom descending arrow
+[aria-sort="descending"] {
+  ::ng-deep .mat-sort-header-arrow {
+    .mat-sort-header-indicator {
+      &::before {
+        content: url("/assets/images/arrow.png");
+        bottom: -18px;
+        position: absolute;
+      }
+    }
+  }
+}
+th div {
+  text-align: center !important;
+  width: 180px !important;
+  position: relative;
+}
+th.mat-header-cell {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: $base-color-green;
+  color: white;
+}
+td.mat-cell {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #5d5d5d;
+}
+
+// @media screen and (max-width: 768px) {
+//   th div{
+//     width: 100px!important;
+//   }
+
+// }

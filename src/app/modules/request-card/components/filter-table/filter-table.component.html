@@ -1,0 +1,20 @@
+<form fxLayout="column" class="container" fxLayoutGap="20px" [formGroup]="form">
+  <div fxLayoutGap="20px" fxLayoutAlign="center center" fxLayout="row">
+    <div class="container__field" fxLayout="column" fxLayoutGap="15px">
+      <label>Usuario</label>
+      <input type="text" placeholder="Nombre" formControlName="user" />
+    </div>
+
+    <div class="container__field" fxLayout="column" fxLayoutGap="15px">
+      <label>Fechas</label>
+      <input type="date" placeholder="día/mes/año" formControlName="date" />
+    </div>
+  </div>
+
+
+  <div class="container__buttons" fxLayoutGap="20px" fxLayoutAlign="start center" fxLayout="row">
+    <button type="button" (click)="clean()">Limpiar filtros</button>
+    <button type="submit"  (click)="search()">Buscar</button>
+  </div>
+
+</form>

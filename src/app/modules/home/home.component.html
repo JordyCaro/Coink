@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxLayoutAlign="center center">
+    <img src="assets/images/dashboard.png" width="100">
+    <button mat-icon-button>
+      <mat-icon (click)="drawerChange()">menu</mat-icon>
+    </button>
+
+  </div>
+  <span *ngIf="!isMobile">BACKOFFICE</span>
+  <button mat-icon-button>
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="container__sidenav" [mode]="isMobile?'over':'side'" [opened]="isMobile?false:true">
+
+    <div class="container__profile">
+    </div>
+    <div class="container__name__user">
+      Jerry
+    </div>
+    <app-list-items (OnMenuSelected)="MenuSelected($event)"></app-list-items>
+
+
+
+
+
+  </mat-drawer>
+
+  <div class="container__content">
+    <app-tree-routes [routeTree]="routeTree"></app-tree-routes>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

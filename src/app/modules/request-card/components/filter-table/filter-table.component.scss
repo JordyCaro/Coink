@@ -1,0 +1,42 @@
+@use 'variables/colors/green-coink' as *;
+
+.container{
+  width: 100%;
+  input{
+    color: #5D5D5D;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 10px 5px 10px;
+  }
+  &__field{
+    label{
+      margin-bottom: 15px;
+      font-size: 13px;
+      font-family: 'Montserrat';
+      font-weight: 600;
+    }
+  }
+  button{
+    width: 130px;
+    padding: 7px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    border: 0.2px solid $base-color-green;
+    cursor: pointer;
+  }
+  &__buttons{
+    button:nth-child(1){
+      margin-right: 10px;
+      color: $base-color-green;
+
+    }
+    button:nth-child(2){
+      color: white;
+      background-color: $base-color-green;
+    }
+  }
+}

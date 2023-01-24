@@ -1,0 +1,19 @@
+@import "variables/colors/green-coink";
+@import "@angular/material/theming";
+
+$palette-primary: mat-palette($green-primary-color);
+$palette-accent: mat-palette($green-accent-color);
+$palette-warn: mat-palette($green-warn-color);
+
+//create theme with the palette
+$coink-theme: mat-light-theme((
+ color: (
+   primary: $palette-primary,
+   accent: $palette-accent,
+   warn: $palette-warn
+ )
+));
+
+@include angular-material-theme($coink-theme);
+
+

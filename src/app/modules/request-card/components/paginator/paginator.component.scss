@@ -1,0 +1,37 @@
+
+@use "variables/colors/green-coink" as *;
+.container{
+
+  margin-top: 20px;
+  width: 100%;
+  font-size: 12px;
+  color: #6c6767;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  mat-icon{
+    color: #1EEB00;
+    cursor: pointer;
+  }
+  &__numbers{
+    color: $base-color-green;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    padding: 0px;
+    border-radius: 2px;
+  }
+  .selected{
+    background-color: #1EEB00;
+  }
+  button{
+    border: none;
+    background: transparent;
+  }
+  .paginator{
+    width: 100vw;
+  }
+}

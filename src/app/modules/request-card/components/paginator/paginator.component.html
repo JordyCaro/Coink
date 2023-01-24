@@ -1,0 +1,13 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+  <div>
+    Mostrando {{ limit }} de {{ totalPages }}
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+    <button type="button" (click)="previousPage()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span [ngClass]="{'selected': page===n}" (click)="selectPage(n)" class="container__numbers" *ngFor="let n of pages">{{n}}</span>
+    <button type="button" (click)="nextPage()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>

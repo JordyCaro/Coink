@@ -1,0 +1,11 @@
+@mixin applyFont($fonts) {
+    @each $font, $font-props in $fonts {
+        @font-face {
+            font-family: map-get($map: $font-props, $key: font-family);
+            src: url(map-get($map: $font-props, $key: font-path));
+            font-weight: map-get($map: $font-props, $key: font-weight);
+            font-style: map-get($map: $font-props, $key: font-style);
+            font-display: map-get($map: $font-props, $key: font-display);
+        }
+    }
+}

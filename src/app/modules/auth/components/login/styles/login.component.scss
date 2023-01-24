@@ -1,0 +1,31 @@
+
+@use './sideLeft.scss' as *;
+@use './sideRight.scss' as *;
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  @include sideright;
+  @include sideleft;
+  @media (max-width: 768px) {
+    .container {
+      form {
+        width: 250px;
+        input {
+          width: 250px;
+        }
+        &__right--boxfield {
+          width: 250px;
+        }
+      }
+      img:not(.container__right--boxfield img) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    overflow: scroll;
+  }
+}
+
+

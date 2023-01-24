@@ -1,0 +1,70 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+  <div fxFlexOrder.xs="1" fxFlexOrder.sm="1" fxLayout="column" fxLayoutAlign="start center" fxFlex="50" fxFlex.xs="100"
+    fxFlex.sm="100" class="container__left">
+    <div class="container__left--title">
+      <h3>¡Bienvenido a la herramienta de registro Coink!</h3>
+    </div>
+
+    <img src="assets/images/login1.png" alt="coink">
+    <span class="container__left--text">
+      Coink para tu día a día. Empieza ahorrando y cumple tus sueños con propósito.
+    </span>
+    <img src="assets/images/login2.png" alt="coink">
+  </div>
+  <div fxFlexOrder.xs="0" fxFlexOrder.sm="0" fxLayout="column" fxLayoutAlign="start center" fxFlex="50" fxFlex.xs="100"
+    fxFlex.sm="100" class="container__right">
+    <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="end" fxLayoutAlign="center center"
+      class="container__right--register">
+      <span>¿Aún no tienes una cuenta?</span>
+      <span>Regístrate ahora</span>
+    </div>
+    <form fxLayoutAlign="center start" fxLayout="column" [formGroup]="form">
+      <h3 fxFlexAlign="start">Iniciar sesión en Coink</h3>
+
+
+      <!-- begin field email -->
+      <div class="container__right--field" fxLayout="column">
+        <label fxFlexAlign="start" for="email">Correo electrónico</label>
+        <div class="container__right--boxfield">
+          <input type="email" id="email" placeholder="Ingresa tu correo electrónico" formControlName="email">
+          <img src="assets/images/iconuser.png">
+        </div>
+      </div>
+      <!-- end field email -->
+
+      <!-- begin field password -->
+
+      <div class="container__right--field" fxLayout="column">
+        <label fxFlexAlign="start" for="email">Contraseña</label>
+        <div class="container__right--boxfield">
+          <input type="password" id="password" placeholder="Ingresa tu contraseña" formControlName="password">
+          <img src="assets/images/iconeye.png">
+        </div>
+      </div>
+
+      <!-- end field password -->
+
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <input type="checkbox" fxFlexAlign="start" class="container__right--remember" color="primary" checked="true">
+        <span class="container__right--remember-text">Recordarme</span>
+      </div>
+      <button [ngClass]="{'invalid': !form.valid}" fxFlexAlign="center" (click)="login()" type="button"
+        mat-raised-button color="primary" class="container__right--button">{{loading ? 'Cargando...' : 'Iniciar sesión'
+        }}</button>
+      <span fxFlexAlign="center" class="container__right--forgot">¿Olvidaste tu contraseña?</span>
+
+
+
+    </form>
+
+  </div>
+
+</div>
+<ng-template #warning let-control="control" let-message="message">
+  <div *ngIf="
+      control.hasError('email') ||
+      (control.hasError('required') && control.touched)
+    " class="alert alert-warning mt-2 px-2 py-2 fs-10 custom-alert" role="alert">
+    {{ message }}
+  </div>
+</ng-template>

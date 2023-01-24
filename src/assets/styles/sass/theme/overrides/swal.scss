@@ -1,0 +1,37 @@
+@use "variables/colors/green-coink" as *;
+
+.sweet-icon {
+  border: 0 !important;
+  height: 5px !important;
+}
+.sweet-modal-popup {
+  border-radius: 30px !important;
+  min-height: 150px !important;
+  width: 180px !important;
+  padding: 10px !important;
+  img {
+    width: 100px;
+    height: 90px;
+    border-radius: 5px;
+    margin: 20px;
+    position: relative;
+  }
+}
+.sweet-title {
+  font-family: "Avenir" !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #515151 !important;
+  margin-top: 20px !important;
+}
+
+.sweet-html-container {
+  font-size: 16px !important;
+  color: #7a7a87 !important;
+}
+.sweet-btn-ok {
+  width: 194px !important;
+  height: 40px !important;
+  background-color: $base-color !important;
+  font-weight: 700 !important;
+}

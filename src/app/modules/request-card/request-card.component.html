@@ -1,0 +1,128 @@
+<div fxLayout="column">
+
+  <div [ngStyle]="{'width':drawerOpen?'75vw':'92vw'}" fxLayoutGap.xs="25px"  class="container" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="10px">
+    <h3>SOLICITUD DE TARJETAS</h3>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <mat-icon>
+        search
+      </mat-icon>
+      <span>Buscar</span>
+    </div>
+    <app-filter-table (OnClean)="clean()" (Onfilter)="filter($event)"></app-filter-table>
+
+    <button type="button" fxFlexAlign="end" fxFlexAlign.xs="start" fxFlexAlign.sm="start">Solicitar tarjetas</button>
+    <h2 *ngIf="notFoundFilter else table">No encontramos ninguna tarjeta con esa información.</h2>
+
+
+
+
+  </div>
+
+  <app-paginator *ngIf="!notFoundFilter" (OnPageSelected)="pageSelected($event)" [page]="page" [limit]="limit" [totalPages]="pagination?.pages">
+  </app-paginator>
+</div>
+
+<div>
+
+  <ng-template #table>
+    <div class="container__table">
+      <table mat-table [dataSource]="dataTable" matSort class="mat-elevation-z2 container__table--table">
+
+        <!-- begin user Column -->
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by user">
+            <div>
+              <span>Personaje</span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <!-- end user Column -->
+
+        <!-- begin cards amount Column -->
+        <ng-container matColumnDef="requestedCards">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by requestedCards">
+            <div>
+              Número de episodios en que aparece
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.episode.length}} </td>
+        </ng-container>
+        <!-- end cards amount Column -->
+
+        <!--begin date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenar por fecha">
+            <div>
+              Fecha de Creacion
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element" fxLayout="column">
+            <span>
+              {{element.created | date: "dd/MM/yyyy"}}
+
+            </span>
+            <span>
+              {{element.created | date:'shortTime'}}
+            </span>
+
+
+          </td>
+        </ng-container>
+        <!-- end date Column -->
+
+        <!-- begin status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenar por estado">
+            <div>
+              Estado
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <!-- end status Column -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #mobileTable>
+  <div class="container__table">
+    <table mat-table [dataSource]="dataTable" matSort class="mat-elevation-z2 container__table--table">
+
+      <!-- begin user Column -->
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by user">
+          <div>
+            <span>Usuario</span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+      </ng-container>
+      <!-- end user Column -->
+
+      <!-- begin cards amount Column -->
+      <ng-container matColumnDef="requestedCards">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by requestedCards">
+          <div>
+            tarjetas solicitadas
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.requestedCards}} </td>
+      </ng-container>
+      <!-- end cards amount Column -->
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsMobile;sticky:true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsMobile;"></tr>
+
+    </table>
+
+  </div>
+
+</ng-template>

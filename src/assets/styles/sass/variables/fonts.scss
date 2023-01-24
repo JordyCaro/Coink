@@ -1,0 +1,8 @@
+@use './fonts/avenir.scss' as *;
+@use './fonts/monserrat.scss' as *;
+@use './fonts/roboto.scss' as *;
+@use 'mixins/font-builder.scss' as *;
+@include applyFont($fonts-avenir);
+@include applyFont($fonts-monserrat);
+@include applyFont($fonts-roboto);
+
